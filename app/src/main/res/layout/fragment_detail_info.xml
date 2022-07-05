@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ProgressBar
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/pbDetailInfo"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        ></ProgressBar>
+
+    <ImageView
+        android:id="@+id/imageCharacter"
+
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        ></ImageView>
+
+
+    <TextView
+        android:id="@+id/nameCharacterSingle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="name"
+        android:textSize="40sp"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/statusSingle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="status"
+        android:textSize="40sp"
+        android:layout_gravity="center"
+/>
+
+    <TextView
+        android:id="@+id/speciesSingle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="species"
+        android:textSize="40sp"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/genderSingle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="gender"
+        android:textSize="40sp"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/locationSingle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="location"
+        android:textSize="40sp"
+        android:layout_gravity="center"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/episodeSingle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        tools:listitem="@layout/item_single"
+        ></androidx.recyclerview.widget.RecyclerView>
+
+
+</LinearLayout>
