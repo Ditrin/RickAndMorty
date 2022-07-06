@@ -30,4 +30,8 @@ interface RickAndMortyAPI {
         @Path("id") id: Int
     ): SingleEpisode
 
+    @GET("character/")
+    suspend fun getSearchCharacter(
+        @Query("name") query: String
+    ) : Characters
 }

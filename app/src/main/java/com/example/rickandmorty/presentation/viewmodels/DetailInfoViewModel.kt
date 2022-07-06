@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmorty.data.DTOmodels.SingleCharacter
 import com.example.rickandmorty.data.repository.RickAndMortyRepository
+import com.example.rickandmorty.domain.CharacterMapper
+import com.example.rickandmorty.domain.models.SingleCharacterEntity
 import com.example.rickandmorty.presentation.fragments.CharactersFragment.idId.idCharacter
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -24,9 +26,12 @@ class DetailInfoViewModel: ViewModel() {
             kotlin.runCatching {
                 repository.getSingleCharacter(id)
             }.onSuccess {
+                repository.insertCharacter(CharacterMapper().map(it))
                 isLoadingLiveData.postValue(false)
                 singleCharacterLiveData.postValue(it)
             }.onFailure {
+                val temp = repository.getCharacterById(idCharacter)
+                singleCharacterLiveData.value =  temp.toSingleCharacter()
                 isLoadingLiveData.postValue(false)
                 val tmp = it
                 val id = idCharacter

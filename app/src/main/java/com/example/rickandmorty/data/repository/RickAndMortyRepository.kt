@@ -1,12 +1,21 @@
 package com.example.rickandmorty.data.repository
 
-import android.accounts.NetworkErrorException
 import com.example.rickandmorty.data.DTOmodels.*
+import com.example.rickandmorty.data.database.DataBase
 import com.example.rickandmorty.data.remote.Networking
-import com.example.rickandmorty.data.remote.RickAndMortyAPI
-import com.example.rickandmorty.presentation.fragments.CharactersFragment
+import com.example.rickandmorty.domain.models.SingleCharacterEntity
 
 class RickAndMortyRepository() {
+    private val characterDao = DataBase.db.CharacterDao()
+
+    suspend fun insertCharacter(result: SingleCharacterEntity){
+        characterDao.insertCharacter(result)
+    }
+
+    suspend fun getCharacterById(id: Int): SingleCharacterEntity{
+        return characterDao.getCharactersById((id))
+    }
+
     suspend fun getListCharacter(): List<Result>{
         return Networking.rickAndMortyAPI.getAllCharacters().results
     }
@@ -29,5 +38,9 @@ class RickAndMortyRepository() {
 
     suspend fun getSingleEpisodes(id: Int): SingleEpisode{
         return  Networking.rickAndMortyAPI.getSingleEpisode(id)
+    }
+
+    suspend fun getSearchCharacter(name: String): List<Result>{
+        return  Networking.rickAndMortyAPI.getSearchCharacter(name).results
     }
 }

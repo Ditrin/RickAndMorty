@@ -12,7 +12,7 @@ import com.example.rickandmorty.data.DTOmodels.Result
 import com.example.rickandmorty.databinding.ItemCharacterBinding
 
 class CharacterAdapter: RecyclerView.Adapter<CharacterAdapter.ViewHolder>(){
-    private var characters: List<Result> = emptyList()
+    private var characters = mutableListOf<Result>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemCharacterBinding.inflate(layoutInflater, parent, false)
@@ -47,12 +47,14 @@ class CharacterAdapter: RecyclerView.Adapter<CharacterAdapter.ViewHolder>(){
             }
     fun setCharacterList(character: List<Result>)
     {
-        characters = character
+        characters = character.toMutableList()
+        notifyDataSetChanged()
     }
     private var onItemClickListener: ((Result) -> Unit)? = null
 
     fun setOnClickListener(listener: (Result) -> Unit) {
         onItemClickListener = listener
     }
+
 
 }

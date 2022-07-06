@@ -30,7 +30,12 @@ class DetailInfoFragment: Fragment(R.layout.fragment_detail_info) {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDetailInfoBinding.inflate(inflater, container, false)
+        binding.appBarInfo.setNavigationOnClickListener {
+            requireActivity().onBackPressed()
+        }
         return binding.root
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -62,7 +67,8 @@ class DetailInfoFragment: Fragment(R.layout.fragment_detail_info) {
             listAdapter.setSingleCharacter(it.episode)
             listAdapter.setOnClickListener {
                 parentFragmentManager.beginTransaction().apply {
-                    replace(R.id.fragmentContainer, EpisodesFragment())
+//                    CharactersFragment.idId.idEpisode = it.findLast  }
+                    replace(R.id.fragmentContainer, DetailEpisodeFragment())
                     commit()
                 }
             }

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RickAndMorty.iml" filepath="$PROJECT_DIR$/.idea/modules/RickAndMorty.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RICK_and_MORTY.iml" filepath="$PROJECT_DIR$/.idea/modules/RICK_and_MORTY.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/RICK_and_MORTY.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/RICK_and_MORTY.app.iml" />
     </modules>
   </component>
 </project>
