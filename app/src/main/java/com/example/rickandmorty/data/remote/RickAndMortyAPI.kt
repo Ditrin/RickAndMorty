@@ -34,4 +34,14 @@ interface RickAndMortyAPI {
     suspend fun getSearchCharacter(
         @Query("name") query: String
     ) : Characters
+
+    @GET("location/")
+    suspend fun getSearchLocation(
+        @Query("name") query: String
+    ) : Locations
+
+    @GET("episode/")
+    suspend fun getSearchEpisodes(
+        @Query("name") query: String
+    ) : Episodes
 }

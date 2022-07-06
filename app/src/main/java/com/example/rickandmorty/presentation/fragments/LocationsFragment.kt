@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.FragmentCharactersBinding
 import com.example.rickandmorty.databinding.FragmentLocationsBinding
@@ -18,10 +19,11 @@ import com.example.rickandmorty.presentation.fragments.CharactersFragment.idId.i
 import com.example.rickandmorty.presentation.viewmodels.CharacterViewModel
 import com.example.rickandmorty.presentation.viewmodels.LocationsViewModel
 
-class LocationsFragment: Fragment(R.layout.fragment_locations)  {
+class LocationsFragment: Fragment(R.layout.fragment_locations) {
     private lateinit var binding: FragmentLocationsBinding
     private val viewModel: LocationsViewModel by viewModels()
     private lateinit var listAdapter: LocationsAdaptor
+    private lateinit var swipe: SwipeRefreshLayout
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,6 +31,7 @@ class LocationsFragment: Fragment(R.layout.fragment_locations)  {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentLocationsBinding.inflate(inflater, container, false)
+        swipe = binding.swipeLocation
         return binding.root
     }
 
@@ -37,17 +40,16 @@ class LocationsFragment: Fragment(R.layout.fragment_locations)  {
 
         listAdapter = LocationsAdaptor()
         viewModel.getLocationsList()
-        viewModel.isLoading.observe(viewLifecycleOwner){
-            if(it){
+        viewModel.isLoading.observe(viewLifecycleOwner) {
+            if (it) {
                 binding.pbLocation.visibility = View.VISIBLE
 
-            }
-            else
+            } else
                 binding.pbLocation.visibility = View.GONE
 
         }
 
-        viewModel.locationsList.observe(viewLifecycleOwner){
+        viewModel.locationsList.observe(viewLifecycleOwner) {
             binding.recyclerViewLocations.apply {
                 adapter = listAdapter
                 layoutManager = GridLayoutManager(activity, 2)
@@ -68,6 +70,17 @@ class LocationsFragment: Fragment(R.layout.fragment_locations)  {
             }
 
         }
+        swipe.setOnRefreshListener {
+            viewModel.refreshList()
+            swipe.isRefreshing = false
+        }
 
+        binding.buttonSearchLocation.setOnClickListener {
+            viewModel.saveText(binding.searchLocation.text.toString())
+            viewModel.searchText.observe(viewLifecycleOwner) { text ->
+                viewModel.getSearchList(text)
+                listAdapter.update()
+            }
+        }
     }
 }

@@ -36,17 +36,16 @@ class EpisodesFragment : Fragment(R.layout.fragment_episodes) {
 
         listAdapter = EpisodesAdapter()
         viewModel.getEpisodesList()
-        viewModel.isLoading.observe(viewLifecycleOwner){
-            if(it){
+        viewModel.isLoading.observe(viewLifecycleOwner) {
+            if (it) {
                 binding.pbEpisodes.visibility = View.VISIBLE
 
-            }
-            else
+            } else
                 binding.pbEpisodes.visibility = View.GONE
 
         }
 
-        viewModel.episodesList.observe(viewLifecycleOwner){
+        viewModel.episodesList.observe(viewLifecycleOwner) {
             binding.recyclerViewEpisodes.apply {
                 adapter = listAdapter
                 layoutManager = GridLayoutManager(activity, 2)
@@ -67,7 +66,18 @@ class EpisodesFragment : Fragment(R.layout.fragment_episodes) {
             }
 
         }
+        binding.swipeEpisodes.setOnRefreshListener {
+            viewModel.getEpisodesList()
+            binding.swipeEpisodes.isRefreshing = false
+        }
 
+        binding.buttonSearchEpisodes.setOnClickListener {
+            viewModel.saveText(binding.searchEpisodes.text.toString())
+            viewModel.searchText.observe(viewLifecycleOwner) { text ->
+                viewModel.getSearchList(text)
+            }
+
+
+        }
     }
-
 }

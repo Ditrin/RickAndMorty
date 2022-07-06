@@ -58,8 +58,8 @@ class DetailLocFragment : Fragment(R.layout.fragment_detail_loc) {
             listAdapter.setSingleCharacter(it.residents)
             listAdapter.setOnClickListener {
                 parentFragmentManager.beginTransaction().apply {
-                    replace(R.id.fragmentContainer, EpisodesFragment())
-                    addToBackStack("")
+                    CharactersFragment.idId.idCharacter = it.replace("https://rickandmortyapi.com/api/character/", "").toInt()
+                    replace(R.id.fragmentContainer, DetailInfoFragment())
                     commit()
                 }
         }

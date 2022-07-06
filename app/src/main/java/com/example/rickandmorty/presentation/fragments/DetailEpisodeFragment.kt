@@ -12,6 +12,7 @@ import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.FragmentDetailEpisodesBinding
 import com.example.rickandmorty.databinding.FragmentDetailLocBinding
 import com.example.rickandmorty.presentation.adapters.SingleAdapter
+import com.example.rickandmorty.presentation.fragments.CharactersFragment.idId.idCharacter
 import com.example.rickandmorty.presentation.viewmodels.DetailEpisodesViewModel
 import com.example.rickandmorty.presentation.viewmodels.DetailLocViewModel
 
@@ -58,7 +59,8 @@ class DetailEpisodeFragment: Fragment() {
             listAdapter.setSingleCharacter(it.characters)
             listAdapter.setOnClickListener {
                 parentFragmentManager.beginTransaction().apply {
-                    add(R.id.fragmentContainer, DetailEpisodeFragment())
+                    idCharacter = it.replace("https://rickandmortyapi.com/api/character/", "").toInt()
+                    replace(R.id.fragmentContainer, DetailInfoFragment())
                     commit()
                 }
             }

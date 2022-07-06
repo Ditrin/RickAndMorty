@@ -43,4 +43,12 @@ class RickAndMortyRepository() {
     suspend fun getSearchCharacter(name: String): List<Result>{
         return  Networking.rickAndMortyAPI.getSearchCharacter(name).results
     }
+
+    suspend fun getSearchLocation(name: String): List<ResultX>{
+        return  Networking.rickAndMortyAPI.getSearchLocation(name).results
+    }
+
+    suspend fun getSearchEpisodes(name: String): List<ResultXX>{
+        return  Networking.rickAndMortyAPI.getSearchEpisodes(name).results
+    }
 }

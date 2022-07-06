@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmorty.data.DTOmodels.ResultX
 import com.example.rickandmorty.data.repository.RickAndMortyRepository
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
@@ -16,10 +17,18 @@ class LocationsViewModel: ViewModel() {
     private val repository = RickAndMortyRepository()
     private val isLoadingLiveData = MutableLiveData<Boolean>(true)
     val isLoading: LiveData<Boolean> = isLoadingLiveData
+    private val searchTextLiveData = MutableLiveData<String>()
+    val searchText: LiveData<String> = searchTextLiveData
 
-    fun getLocationsList(){
+    fun saveText(text: String){
+        searchTextLiveData.postValue("")
+        searchTextLiveData.postValue(text)
+    }
+
+    fun refreshList() {
+        locationsLiveData.postValue(emptyList())
         job?.cancel()
-        job = viewModelScope.launch {
+        job = GlobalScope.launch {
             kotlin.runCatching {
                 repository.getAllLocation()
             }.onSuccess {
@@ -29,6 +38,38 @@ class LocationsViewModel: ViewModel() {
                 isLoadingLiveData.postValue(false)
                 val tmp = it
                 print(tmp)
+            }
+        }
+    }
+
+
+    fun getLocationsList() {
+        job?.cancel()
+        job = GlobalScope.launch {
+            kotlin.runCatching {
+                repository.getAllLocation()
+            }.onSuccess {
+                isLoadingLiveData.postValue(false)
+                locationsLiveData.postValue(it)
+            }.onFailure {
+                isLoadingLiveData.postValue(false)
+                val tmp = it
+                print(tmp)
+            }
+        }
+    }
+
+    fun getSearchList(name: String) {
+        job?.cancel()
+        job = GlobalScope.launch {//не работает с viewModelScope, зато работает с Global, магия)))
+            kotlin.runCatching {
+                repository.getSearchLocation(name)
+            }.onSuccess {
+                isLoadingLiveData.postValue(false)
+                locationsLiveData.postValue(it)
+            }.onFailure {
+                isLoadingLiveData.postValue(false)
+                val tmp = it
             }
         }
     }

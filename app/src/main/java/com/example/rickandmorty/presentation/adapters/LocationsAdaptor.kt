@@ -38,7 +38,13 @@ class LocationsAdaptor: RecyclerView.Adapter<LocationsAdaptor.ViewHolder>() {
             }
     fun setLocationsList(loc: List<ResultX>)
     {
+        locations = emptyList()
         locations = loc
+        update()
+    }
+
+    fun update(){
+        notifyDataSetChanged()
     }
     private var onItemClickListener: ((ResultX) -> Unit)? = null
 

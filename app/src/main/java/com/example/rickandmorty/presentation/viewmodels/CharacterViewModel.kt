@@ -22,10 +22,6 @@ class CharacterViewModel: ViewModel() {
     private val searchTextLiveData = MutableLiveData<String>()
     val searchText: LiveData<String> = searchTextLiveData
 
-    init {
-        refreshList()
-    }
-
     fun saveText(text: String){
         searchTextLiveData.postValue("")
         searchTextLiveData.postValue(text)
@@ -36,7 +32,7 @@ class CharacterViewModel: ViewModel() {
     fun refreshList(){
         listCharacterLiveData.postValue(emptyList())
         job?.cancel()
-        job = viewModelScope.launch {
+        job = GlobalScope.launch {
             kotlin.runCatching {
                 repository.getListCharacter()
             }.onSuccess {
