@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmorty.data.DTOmodels.SingleLocation
 import com.example.rickandmorty.data.repository.RickAndMortyRepository
+import com.example.rickandmorty.domain.CharacterMapper
+import com.example.rickandmorty.domain.LocationMapper
 import com.example.rickandmorty.presentation.fragments.CharactersFragment
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -24,9 +26,12 @@ class DetailLocViewModel : ViewModel() {
             kotlin.runCatching {
                 repository.getSingleLocation(id)
             }.onSuccess {
+                repository.insertLocation(LocationMapper().map(it))
                 isLoadingLiveData.postValue(false)
                 singleLocationsLiveData.postValue(it)
             }.onFailure {
+                val temp = repository.getLocationById(CharactersFragment.idId.idLocation)
+                singleLocationsLiveData.value =  temp.toSingleLocation()
                 isLoadingLiveData.postValue(false)
                 val tmp = it
                 val id = CharactersFragment.idId.idLocation

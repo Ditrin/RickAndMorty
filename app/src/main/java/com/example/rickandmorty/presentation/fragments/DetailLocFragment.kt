@@ -26,6 +26,9 @@ class DetailLocFragment : Fragment(R.layout.fragment_detail_loc) {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDetailLocBinding.inflate(inflater, container, false)
+        binding.appBarLocation.setNavigationOnClickListener {
+            requireActivity().onBackPressed()
+        }
         return binding.root
     }
 

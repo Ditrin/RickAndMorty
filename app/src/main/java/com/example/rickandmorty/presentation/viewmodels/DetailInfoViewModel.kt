@@ -40,8 +40,4 @@ class DetailInfoViewModel: ViewModel() {
         }
     }
 
-    fun refresh(id: Int){
-        getSingleCharacter(id)
-
-    }
 }

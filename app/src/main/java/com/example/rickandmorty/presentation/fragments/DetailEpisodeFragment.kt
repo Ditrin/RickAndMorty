@@ -28,6 +28,9 @@ class DetailEpisodeFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDetailEpisodesBinding.inflate(inflater, container, false)
+        binding.appBarEpisode.setNavigationOnClickListener {
+            requireActivity().onBackPressed()
+        }
         return binding.root
     }
 

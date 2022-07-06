@@ -4,16 +4,36 @@ import com.example.rickandmorty.data.DTOmodels.*
 import com.example.rickandmorty.data.database.DataBase
 import com.example.rickandmorty.data.remote.Networking
 import com.example.rickandmorty.domain.models.SingleCharacterEntity
+import com.example.rickandmorty.domain.models.SingleEpisodeEntity
+import com.example.rickandmorty.domain.models.SingleLocationEntity
 
 class RickAndMortyRepository() {
     private val characterDao = DataBase.db.CharacterDao()
+    private val locationDao = DataBase.db.LocationDao()
+    private val episodeDao = DataBase.db.EpisodesDao()
 
     suspend fun insertCharacter(result: SingleCharacterEntity){
         characterDao.insertCharacter(result)
     }
 
     suspend fun getCharacterById(id: Int): SingleCharacterEntity{
-        return characterDao.getCharactersById((id))
+        return characterDao.getCharactersById(id)
+    }
+
+    suspend fun insertLocation(result: SingleLocationEntity){
+        locationDao.insertLocation(result)
+    }
+
+    suspend fun getLocationById(id: Int): SingleLocationEntity{
+        return locationDao.getLocationById(id)
+    }
+
+    suspend fun insertEpisode(result: SingleEpisodeEntity){
+        episodeDao.insertEpisode(result)
+    }
+
+    suspend fun getEpisodeById(id: Int): SingleEpisodeEntity{
+        return episodeDao.getEpisodeById(id)
     }
 
     suspend fun getListCharacter(): List<Result>{
