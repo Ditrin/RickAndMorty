@@ -6,8 +6,8 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17147922998986828" />
         <entry key="app/src/main/res/layout/fragment_characters.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_detail_episodes.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_detail_info.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/fragment_detail_loc.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_detail_info.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_detail_loc.xml" value="0.433389544688027" />
         <entry key="app/src/main/res/layout/fragment_episodes.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_locations.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_character.xml" value="0.1" />
