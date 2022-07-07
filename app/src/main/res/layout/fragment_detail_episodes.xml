@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:textColor="@color/black"
-        android:textSize="15sp"
+        android:textSize="20sp"
         tools:text="air_date" />
 
     <TextView
@@ -83,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:textColor="@color/black"
-        android:textSize="15sp"
+        android:textSize="20sp"
         tools:text="episode" />
 
     <TextView
@@ -94,16 +94,15 @@
         android:layout_marginTop="8dp"
         android:text="@string/characters"
         android:textColor="@color/black"
-        android:textSize="15sp" />
+        android:textSize="22sp" />
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/detailEpisodesRecyclerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="22dp"
         android:layout_marginRight="8dp" />
-
-
 
 </LinearLayout>
