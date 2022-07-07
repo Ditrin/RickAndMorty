@@ -1,10 +1,7 @@
 package com.example.rickandmorty.presentation
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.ActivityMainBinding
@@ -25,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         val fragmentEpisodes = EpisodesFragment()
         setCurrentFragment(fragmentCharacter)
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
-            when(it.itemId){
+            when (it.itemId) {
                 R.id.characters -> setCurrentFragment(fragmentCharacter)
                 R.id.location -> setCurrentFragment(fragmentLocations)
                 R.id.episodes -> setCurrentFragment(fragmentEpisodes)
@@ -34,8 +31,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     fun setCurrentFragment(fragment: Fragment) = supportFragmentManager.beginTransaction().apply {
         replace(R.id.fragmentContainer, fragment)
-    commit()}
+        commit()
+    }
 }

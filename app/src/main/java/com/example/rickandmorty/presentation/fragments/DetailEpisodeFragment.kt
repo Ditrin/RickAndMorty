@@ -11,17 +11,14 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.FragmentDetailEpisodesBinding
-import com.example.rickandmorty.databinding.FragmentDetailLocBinding
 import com.example.rickandmorty.presentation.adapters.SingleAdapter
 import com.example.rickandmorty.presentation.fragments.CharactersFragment.idId.idCharacter
 import com.example.rickandmorty.presentation.viewmodels.DetailEpisodesViewModel
-import com.example.rickandmorty.presentation.viewmodels.DetailLocViewModel
 
-class DetailEpisodeFragment: Fragment() {
+class DetailEpisodeFragment : Fragment() {
     private lateinit var binding: FragmentDetailEpisodesBinding
     private val viewModel: DetailEpisodesViewModel by viewModels()
     private lateinit var listAdapter: SingleAdapter
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,17 +37,14 @@ class DetailEpisodeFragment: Fragment() {
 
         listAdapter = SingleAdapter()
         viewModel.getSingleEpisode(CharactersFragment.idId.idEpisode)
-        viewModel.isLoading.observe(viewLifecycleOwner){
-            if(it){
+        viewModel.isLoading.observe(viewLifecycleOwner) {
+            if (it) {
                 binding.pbDetailEpisodes.visibility = View.VISIBLE
-
-            }
-            else
+            } else
                 binding.pbDetailEpisodes.visibility = View.GONE
-
         }
 
-        viewModel.singleEpisode.observe(viewLifecycleOwner){
+        viewModel.singleEpisode.observe(viewLifecycleOwner) {
             binding.detailEpisodesRecyclerView.apply {
                 adapter = listAdapter
                 layoutManager = GridLayoutManager(activity, 2)
@@ -63,16 +57,18 @@ class DetailEpisodeFragment: Fragment() {
             listAdapter.setSingleCharacter(it.characters)
             listAdapter.setOnClickListener {
                 parentFragmentManager.beginTransaction().apply {
-                    idCharacter = it.replace("https://rickandmortyapi.com/api/character/", "").toInt()
+                    idCharacter =
+                        it.replace("https://rickandmortyapi.com/api/character/", "").toInt()
                     replace(R.id.fragmentContainer, DetailInfoFragment())
                     commit()
                 }
             }
-            with(binding){
+            with(binding) {
                 nameDetailEpisodes.text = it.name
                 airDateDetailEpisodes.text = it.air_date
                 episodeDetailEpisodes.text = it.episode
 
-            }}
+            }
+        }
     }
 }

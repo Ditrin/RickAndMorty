@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmorty.data.DTOmodels.SingleLocation
 import com.example.rickandmorty.data.repository.RickAndMortyRepository
-import com.example.rickandmorty.domain.CharacterMapper
 import com.example.rickandmorty.domain.LocationMapper
 import com.example.rickandmorty.presentation.fragments.CharactersFragment
 import kotlinx.coroutines.Job
@@ -21,7 +20,7 @@ class DetailLocViewModel : ViewModel() {
     private val isLoadingLiveData = MutableLiveData<Boolean>(true)
     val isLoading: LiveData<Boolean> = isLoadingLiveData
 
-    fun getSingleLocCharacter(id: Int){
+    fun getSingleLocCharacter(id: Int) {
         job?.cancel()
         job = viewModelScope.launch {
             kotlin.runCatching {
@@ -33,17 +32,15 @@ class DetailLocViewModel : ViewModel() {
             }.onFailure {
                 try {
                     val temp = repository.getLocationById(CharactersFragment.idId.idLocation)
-                    singleLocationsLiveData.value =  temp.toSingleLocation()
+                    singleLocationsLiveData.value = temp.toSingleLocation()
                     isLoadingLiveData.postValue(false)
                     val tmp = it
                     val id = CharactersFragment.idId.idLocation
                     print(tmp)
-                }
-                catch (e: Exception) {
+                } catch (e: Exception) {
                     e.printStackTrace()
                 }
             }
         }
     }
-
 }

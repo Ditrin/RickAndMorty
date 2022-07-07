@@ -27,23 +27,23 @@
         android:visibility="gone"></ProgressBar>
 
     <TextView
-        android:layout_marginTop="10dp"
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
         android:text="@string/locations"
         android:textColor="#686868"
         android:textSize="10sp"
-        tools:text="locations"/>
+        tools:text="locations" />
 
     <TextView
         android:id="@+id/nameDetailLoc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:textSize="40sp"
         android:textColor="@color/black"
+        android:textSize="40sp"
         tools:text="name" />
 
     <TextView
@@ -54,7 +54,7 @@
         android:text="@string/type"
         android:textColor="#686868"
         android:textSize="10sp"
-        tools:text="type"/>
+        tools:text="type" />
 
     <TextView
         android:id="@+id/typeDetailLoc"
@@ -73,7 +73,7 @@
         android:text="@string/dimension"
         android:textColor="#686868"
         android:textSize="10sp"
-        tools:text="dimension"/>
+        tools:text="dimension" />
 
     <TextView
         android:id="@+id/dimensionDetailLoc"
@@ -99,7 +99,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="22dp"
-        android:layout_marginRight="8dp"
-        />
+        android:layout_marginRight="8dp" />
 
 </LinearLayout>

@@ -1,8 +1,6 @@
 package com.example.rickandmorty.domain
 
-import com.example.rickandmorty.data.DTOmodels.SingleCharacter
 import com.example.rickandmorty.data.DTOmodels.SingleEpisode
-import com.example.rickandmorty.domain.models.SingleCharacterEntity
 import com.example.rickandmorty.domain.models.SingleEpisodeEntity
 
 class EpisodeMapper : Mapper<SingleEpisode, SingleEpisodeEntity> {

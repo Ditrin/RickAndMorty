@@ -11,15 +11,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.rickandmorty.R
-import com.example.rickandmorty.databinding.FragmentCharactersBinding
 import com.example.rickandmorty.databinding.FragmentLocationsBinding
-import com.example.rickandmorty.presentation.adapters.CharacterAdapter
 import com.example.rickandmorty.presentation.adapters.LocationsAdaptor
 import com.example.rickandmorty.presentation.fragments.CharactersFragment.idId.idLocation
-import com.example.rickandmorty.presentation.viewmodels.CharacterViewModel
 import com.example.rickandmorty.presentation.viewmodels.LocationsViewModel
 
-class LocationsFragment: Fragment(R.layout.fragment_locations) {
+class LocationsFragment : Fragment(R.layout.fragment_locations) {
     private lateinit var binding: FragmentLocationsBinding
     private val viewModel: LocationsViewModel by viewModels()
     private lateinit var listAdapter: LocationsAdaptor
@@ -43,10 +40,8 @@ class LocationsFragment: Fragment(R.layout.fragment_locations) {
         viewModel.isLoading.observe(viewLifecycleOwner) {
             if (it) {
                 binding.pbLocation.visibility = View.VISIBLE
-
             } else
                 binding.pbLocation.visibility = View.GONE
-
         }
 
         viewModel.locationsList.observe(viewLifecycleOwner) {
@@ -68,7 +63,6 @@ class LocationsFragment: Fragment(R.layout.fragment_locations) {
                     commit()
                 }
             }
-
         }
         swipe.setOnRefreshListener {
             viewModel.refreshList()

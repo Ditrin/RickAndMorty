@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.rickandmorty.data.DTOmodels.SingleCharacter
 import com.example.rickandmorty.data.repository.RickAndMortyRepository
 import com.example.rickandmorty.domain.CharacterMapper
-import com.example.rickandmorty.domain.models.SingleCharacterEntity
 import com.example.rickandmorty.presentation.fragments.CharactersFragment.idId.idCharacter
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -41,9 +40,7 @@ class DetailInfoViewModel : ViewModel() {
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
-
             }
         }
     }
-
 }

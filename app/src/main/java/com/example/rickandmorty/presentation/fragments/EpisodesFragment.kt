@@ -11,11 +11,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.FragmentEpisodesBinding
-import com.example.rickandmorty.databinding.FragmentLocationsBinding
 import com.example.rickandmorty.presentation.adapters.EpisodesAdapter
-import com.example.rickandmorty.presentation.adapters.LocationsAdaptor
 import com.example.rickandmorty.presentation.viewmodels.EpisodesViewModel
-import com.example.rickandmorty.presentation.viewmodels.LocationsViewModel
 
 class EpisodesFragment : Fragment(R.layout.fragment_episodes) {
     private lateinit var binding: FragmentEpisodesBinding
@@ -39,10 +36,8 @@ class EpisodesFragment : Fragment(R.layout.fragment_episodes) {
         viewModel.isLoading.observe(viewLifecycleOwner) {
             if (it) {
                 binding.pbEpisodes.visibility = View.VISIBLE
-
             } else
                 binding.pbEpisodes.visibility = View.GONE
-
         }
 
         viewModel.episodesList.observe(viewLifecycleOwner) {
@@ -64,7 +59,6 @@ class EpisodesFragment : Fragment(R.layout.fragment_episodes) {
                     commit()
                 }
             }
-
         }
         binding.swipeEpisodes.setOnRefreshListener {
             viewModel.getEpisodesList()
@@ -76,8 +70,6 @@ class EpisodesFragment : Fragment(R.layout.fragment_episodes) {
             viewModel.searchText.observe(viewLifecycleOwner) { text ->
                 viewModel.getSearchList(text)
             }
-
-
         }
     }
 }

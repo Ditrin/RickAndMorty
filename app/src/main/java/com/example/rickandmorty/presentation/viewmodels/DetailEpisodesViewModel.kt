@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmorty.data.DTOmodels.SingleEpisode
 import com.example.rickandmorty.data.repository.RickAndMortyRepository
-import com.example.rickandmorty.domain.CharacterMapper
 import com.example.rickandmorty.domain.EpisodeMapper
 import com.example.rickandmorty.presentation.fragments.CharactersFragment
 import com.example.rickandmorty.presentation.fragments.CharactersFragment.idId.idEpisode
@@ -21,7 +20,6 @@ class DetailEpisodesViewModel : ViewModel() {
     private val repository = RickAndMortyRepository()
     private val isLoadingLiveData = MutableLiveData<Boolean>(true)
     val isLoading: LiveData<Boolean> = isLoadingLiveData
-
 
     fun getSingleEpisode(id: Int) {
         job?.cancel()

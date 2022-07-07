@@ -1,49 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:background="#B5E4EA">
+    android:background="#B5E4EA"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="#DFFFF5"
-        >
+        android:orientation="horizontal">
+
         <EditText
-            android:layout_weight="1"
             android:id="@+id/searchLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:hint="search"
-            android:textColorHint="#606060"
             android:textColor="#3A3A3A"
-            ></EditText>
+            android:textColorHint="#606060"></EditText>
+
         <ImageButton
+            android:id="@+id/buttonSearchLocation"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:id="@+id/buttonSearchLocation"
-            android:src="@drawable/ic_search"
             android:background="@android:color/transparent"
-            />
+            android:src="@drawable/ic_search" />
     </LinearLayout>
+
     <ProgressBar
+        android:id="@+id/pbLocation"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:id="@+id/pbLocation"
-        android:visibility="gone"
         android:layout_gravity="center"
-        ></ProgressBar>
-
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/recyclerViewLocations"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        tools:listitem="@layout/item_locations" />-->
-
+        android:visibility="gone"></ProgressBar>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeLocation"
@@ -55,8 +47,8 @@
             android:id="@+id/recyclerViewLocations"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            tools:listitem="@layout/item_locations"
-            android:background="#B5E4EA"/>
+            android:background="#B5E4EA"
+            tools:listitem="@layout/item_locations" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 

@@ -3,9 +3,7 @@ package com.example.rickandmorty.domain.models
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.rickandmorty.data.DTOmodels.SingleCharacter
 import com.example.rickandmorty.data.DTOmodels.SingleLocation
-import com.example.rickandmorty.data.database.CharacterContract
 import com.example.rickandmorty.data.database.LocationContract
 
 @Entity(

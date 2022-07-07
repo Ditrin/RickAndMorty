@@ -1,12 +1,9 @@
 package com.example.rickandmorty.presentation.fragments
 
 import android.os.Bundle
-import android.text.TextUtils.replace
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.addTextChangedListener
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -49,15 +46,10 @@ class CharactersFragment: Fragment(R.layout.fragment_characters) {
         viewModel.isLoading.observe(viewLifecycleOwner){
             if(it){
                 binding.pbCharacter.visibility = View.VISIBLE
-
             }
             else
                 binding.pbCharacter.visibility = View.GONE
-
         }
-
-
-
 
         viewModel.listCharacter.observe(viewLifecycleOwner){
             binding.recyclerView.apply {
@@ -79,7 +71,6 @@ class CharactersFragment: Fragment(R.layout.fragment_characters) {
                     commit()
                 }
             }
-
         }
 
         swipe.setOnRefreshListener {
@@ -92,9 +83,6 @@ class CharactersFragment: Fragment(R.layout.fragment_characters) {
             viewModel.searchText.observe(viewLifecycleOwner){text->
                 viewModel.getSearchList(text)
             }
-
         }
-
     }
-
 }

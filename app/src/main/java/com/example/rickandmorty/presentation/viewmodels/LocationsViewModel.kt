@@ -3,14 +3,13 @@ package com.example.rickandmorty.presentation.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.rickandmorty.data.DTOmodels.ResultX
 import com.example.rickandmorty.data.repository.RickAndMortyRepository
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class LocationsViewModel: ViewModel() {
+class LocationsViewModel : ViewModel() {
     private val locationsLiveData = MutableLiveData<List<ResultX>>()
     val locationsList: LiveData<List<ResultX>> = locationsLiveData
     private var job: Job? = null
@@ -20,7 +19,7 @@ class LocationsViewModel: ViewModel() {
     private val searchTextLiveData = MutableLiveData<String>()
     val searchText: LiveData<String> = searchTextLiveData
 
-    fun saveText(text: String){
+    fun saveText(text: String) {
         searchTextLiveData.postValue("")
         searchTextLiveData.postValue(text)
     }
@@ -41,7 +40,6 @@ class LocationsViewModel: ViewModel() {
             }
         }
     }
-
 
     fun getLocationsList() {
         job?.cancel()

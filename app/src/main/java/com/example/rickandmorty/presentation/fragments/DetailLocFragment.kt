@@ -20,7 +20,6 @@ class DetailLocFragment : Fragment(R.layout.fragment_detail_loc) {
     private val viewModel: DetailLocViewModel by viewModels()
     private lateinit var listAdapter: SingleAdapter
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -38,18 +37,14 @@ class DetailLocFragment : Fragment(R.layout.fragment_detail_loc) {
 
         listAdapter = SingleAdapter()
         viewModel.getSingleLocCharacter(idLocation)
-        viewModel.isLoading.observe(viewLifecycleOwner){
-            if(it){
+        viewModel.isLoading.observe(viewLifecycleOwner) {
+            if (it) {
                 binding.pbDetailLocation.visibility = View.VISIBLE
-
-            }
-            else
+            } else
                 binding.pbDetailLocation.visibility = View.GONE
-
         }
 
-
-        viewModel.singleLocation.observe(viewLifecycleOwner){
+        viewModel.singleLocation.observe(viewLifecycleOwner) {
             binding.detailLocationRecyclerView.apply {
                 adapter = listAdapter
                 layoutManager = GridLayoutManager(activity, 2)
@@ -62,17 +57,18 @@ class DetailLocFragment : Fragment(R.layout.fragment_detail_loc) {
             listAdapter.setSingleCharacter(it.residents)
             listAdapter.setOnClickListener {
                 parentFragmentManager.beginTransaction().apply {
-                    CharactersFragment.idId.idCharacter = it.replace("https://rickandmortyapi.com/api/character/", "").toInt()
+                    CharactersFragment.idId.idCharacter =
+                        it.replace("https://rickandmortyapi.com/api/character/", "").toInt()
                     replace(R.id.fragmentContainer, DetailInfoFragment())
                     commit()
                 }
-        }
-            with(binding){
+            }
+            with(binding) {
                 nameDetailLoc.text = it.name
                 typeDetailLoc.text = it.type
                 dimensionDetailLoc.text = it.dimension
 
-            }}
+            }
+        }
     }
-
 }

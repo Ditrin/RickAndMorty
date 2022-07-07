@@ -4,27 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#B5E4EA">
+    android:background="#B5E4EA"
+    android:orientation="vertical">
 
-<!--        <androidx.constraintlayout.utils.widget.ImageFilterView-->
+    <!--        <androidx.constraintlayout.utils.widget.ImageFilterView-->
 
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="20dp"-->
-<!--            android:id="@+id/filterCharacter"></androidx.constraintlayout.utils.widget.ImageFilterView>-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="20dp"-->
+    <!--            android:id="@+id/filterCharacter"></androidx.constraintlayout.utils.widget.ImageFilterView>-->
 
 
-<!--        <androidx.constraintlayout.utils.widget.ImageFilterButton-->
-<!--            android:text="@string/filter"-->
-<!--            android:background="#D7FFF5"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:id="@+id/filterButtonCharacter"></androidx.constraintlayout.utils.widget.ImageFilterButton>-->
+    <!--        <androidx.constraintlayout.utils.widget.ImageFilterButton-->
+    <!--            android:text="@string/filter"-->
+    <!--            android:background="#D7FFF5"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="40dp"-->
+    <!--            android:id="@+id/filterButtonCharacter"></androidx.constraintlayout.utils.widget.ImageFilterButton>-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#DFFFF5">
+        android:background="#DFFFF5"
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/searchCharacter"
@@ -48,21 +48,19 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:visibility="visible"/>
+        android:visibility="visible" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeCharacters"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            tools:listitem="@layout/item_character"
             android:background="#B5E4EA"
-            />
+            tools:listitem="@layout/item_character" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 

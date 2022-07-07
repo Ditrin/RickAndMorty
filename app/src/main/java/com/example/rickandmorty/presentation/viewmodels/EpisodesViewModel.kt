@@ -10,7 +10,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class EpisodesViewModel: ViewModel() {
+class EpisodesViewModel : ViewModel() {
     private val episodesLiveData = MutableLiveData<List<ResultXX>>()
     val episodesList: LiveData<List<ResultXX>> = episodesLiveData
     private var job: Job? = null
@@ -20,7 +20,7 @@ class EpisodesViewModel: ViewModel() {
     private val searchTextLiveData = MutableLiveData<String>()
     val searchText: LiveData<String> = searchTextLiveData
 
-    fun saveText(text: String){
+    fun saveText(text: String) {
         searchTextLiveData.postValue("")
         searchTextLiveData.postValue(text)
     }

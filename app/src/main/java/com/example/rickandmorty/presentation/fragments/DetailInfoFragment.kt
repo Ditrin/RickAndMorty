@@ -6,11 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
@@ -36,8 +33,6 @@ class DetailInfoFragment : Fragment(R.layout.fragment_detail_info) {
             requireActivity().onBackPressed()
         }
         return binding.root
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,7 +47,6 @@ class DetailInfoFragment : Fragment(R.layout.fragment_detail_info) {
             } else
                 binding.pbDetailInfo.visibility = View.GONE
         }
-
 
         viewModel.singleCharacter.observe(viewLifecycleOwner) {
             binding.episodeSingle.apply {

@@ -6,11 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmorty.data.DTOmodels.Result
 import com.example.rickandmorty.data.repository.RickAndMortyRepository
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import okhttp3.Dispatcher
 
 class CharacterViewModel : ViewModel() {
     private val listCharacterLiveData = MutableLiveData<List<Result>>()
@@ -26,7 +24,6 @@ class CharacterViewModel : ViewModel() {
         searchTextLiveData.postValue("")
         searchTextLiveData.postValue(text)
     }
-
 
     fun refreshList() {
         listCharacterLiveData.postValue(emptyList())

@@ -1,13 +1,8 @@
 package com.example.rickandmorty.data.database
 
-import android.os.Message
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.rickandmorty.data.DTOmodels.Result
-import com.example.rickandmorty.data.DTOmodels.SingleCharacter
-import com.example.rickandmorty.data.DTOmodels.SingleEpisode
-import com.example.rickandmorty.data.DTOmodels.SingleLocation
 import com.example.rickandmorty.data.database.datasrc.CharacterDao
 import com.example.rickandmorty.data.database.datasrc.EpisodeDao
 import com.example.rickandmorty.data.database.datasrc.LocationDao
