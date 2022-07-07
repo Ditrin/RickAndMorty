@@ -9,8 +9,7 @@
 ![Screenshot](Screen/Screenshot_20220707_143215.png)
 #Можно узнать о вариантах всех любимых персонажей, воспользоваавшись поиском по списку.
 ![Screenshot](Screen/Screenshot_20220707_143212.png)
-#
-#
-
-
-#
+#Pull-to-Refresh/ProgressBar
+![Screenshot](Screen/pull.png) ![Screenshot](Screen/Screenshot_20220707_143454.png)
+#Кэширование
+Приложение поддерживает кеширование и имеет возможность работать без интернета.

@@ -26,7 +26,6 @@
         android:layout_gravity="center"
         android:visibility="gone"></ProgressBar>
 
-
     <TextView
         android:layout_marginTop="10dp"
         android:id="@+id/textView5"
