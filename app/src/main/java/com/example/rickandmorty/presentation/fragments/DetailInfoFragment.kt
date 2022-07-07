@@ -21,7 +21,7 @@ import com.example.rickandmorty.presentation.fragments.CharactersFragment.idId.i
 import com.example.rickandmorty.presentation.fragments.CharactersFragment.idId.idEpisode
 import com.example.rickandmorty.presentation.viewmodels.DetailInfoViewModel
 
-class DetailInfoFragment : Fragment(R.layout.fragment_detail_info) {
+class DetailInfoFragment: Fragment(R.layout.fragment_detail_info) {
     private lateinit var binding: FragmentDetailInfoBinding
     private val viewModel: DetailInfoViewModel by viewModels()
     private lateinit var listAdapter: SingleAdapter
@@ -45,11 +45,12 @@ class DetailInfoFragment : Fragment(R.layout.fragment_detail_info) {
 
         listAdapter = SingleAdapter()
         viewModel.getSingleCharacter(idCharacter)
-        viewModel.isLoading.observe(viewLifecycleOwner) {
-            if (it) {
+        viewModel.isLoading.observe(viewLifecycleOwner){
+            if(it){
                 binding.pbDetailInfo.visibility = View.VISIBLE
 
-            } else
+            }
+            else
                 binding.pbDetailInfo.visibility = View.GONE
 
         }
@@ -73,7 +74,7 @@ class DetailInfoFragment : Fragment(R.layout.fragment_detail_info) {
                     commit()
                 }
             }
-            with(binding) {
+            with(binding){
                 speciesSingle.text = it.species
                 nameCharacterSingle.text = it.name
                 statusSingle.text = it.status
@@ -87,7 +88,6 @@ class DetailInfoFragment : Fragment(R.layout.fragment_detail_info) {
                     .into(imageCharacter)
 
             }
-
         }
-    }
+        }
 }

@@ -12,8 +12,9 @@ import com.example.rickandmorty.presentation.fragments.CharactersFragment
 import com.example.rickandmorty.presentation.fragments.CharactersFragment.idId.idEpisode
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import java.lang.Exception
 
-class DetailEpisodesViewModel: ViewModel() {
+class DetailEpisodesViewModel : ViewModel() {
     private val singleEpisodeLiveData = MutableLiveData<SingleEpisode>()
     val singleEpisode: LiveData<SingleEpisode> = singleEpisodeLiveData
     private var job: Job? = null
@@ -22,7 +23,7 @@ class DetailEpisodesViewModel: ViewModel() {
     val isLoading: LiveData<Boolean> = isLoadingLiveData
 
 
-    fun getSingleEpisode(id: Int){
+    fun getSingleEpisode(id: Int) {
         job?.cancel()
         job = viewModelScope.launch {
             kotlin.runCatching {
@@ -32,14 +33,17 @@ class DetailEpisodesViewModel: ViewModel() {
                 isLoadingLiveData.postValue(false)
                 singleEpisodeLiveData.postValue(it)
             }.onFailure {
-                val temp = repository.getEpisodeById(idEpisode)
-                singleEpisodeLiveData.value =  temp.toSingleEpisode()
-                isLoadingLiveData.postValue(false)
-                val tmp = it
-                val id = CharactersFragment.idId.idEpisode
-                print(tmp)
+                try {
+                    val temp = repository.getEpisodeById(idEpisode)
+                    singleEpisodeLiveData.value = temp.toSingleEpisode()
+                    isLoadingLiveData.postValue(false)
+                    val tmp = it
+                    val id = CharactersFragment.idId.idEpisode
+                    print(tmp)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
             }
         }
     }
-
 }

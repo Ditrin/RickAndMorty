@@ -11,6 +11,7 @@ import com.example.rickandmorty.domain.LocationMapper
 import com.example.rickandmorty.presentation.fragments.CharactersFragment
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import java.lang.Exception
 
 class DetailLocViewModel : ViewModel() {
     private val singleLocationsLiveData = MutableLiveData<SingleLocation>()
@@ -30,12 +31,17 @@ class DetailLocViewModel : ViewModel() {
                 isLoadingLiveData.postValue(false)
                 singleLocationsLiveData.postValue(it)
             }.onFailure {
-                val temp = repository.getLocationById(CharactersFragment.idId.idLocation)
-                singleLocationsLiveData.value =  temp.toSingleLocation()
-                isLoadingLiveData.postValue(false)
-                val tmp = it
-                val id = CharactersFragment.idId.idLocation
-                print(tmp)
+                try {
+                    val temp = repository.getLocationById(CharactersFragment.idId.idLocation)
+                    singleLocationsLiveData.value =  temp.toSingleLocation()
+                    isLoadingLiveData.postValue(false)
+                    val tmp = it
+                    val id = CharactersFragment.idId.idLocation
+                    print(tmp)
+                }
+                catch (e: Exception) {
+                    e.printStackTrace()
+                }
             }
         }
     }

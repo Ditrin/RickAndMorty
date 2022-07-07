@@ -12,9 +12,9 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import okhttp3.Dispatcher
 
-class CharacterViewModel: ViewModel() {
+class CharacterViewModel : ViewModel() {
     private val listCharacterLiveData = MutableLiveData<List<Result>>()
-    val listCharacter:LiveData<List<Result>> = listCharacterLiveData
+    val listCharacter: LiveData<List<Result>> = listCharacterLiveData
     private var job: Job? = null
     private val repository = RickAndMortyRepository()
     private val isLoadingLiveData = MutableLiveData<Boolean>(true)
@@ -22,14 +22,13 @@ class CharacterViewModel: ViewModel() {
     private val searchTextLiveData = MutableLiveData<String>()
     val searchText: LiveData<String> = searchTextLiveData
 
-    fun saveText(text: String){
+    fun saveText(text: String) {
         searchTextLiveData.postValue("")
         searchTextLiveData.postValue(text)
     }
 
 
-
-    fun refreshList(){
+    fun refreshList() {
         listCharacterLiveData.postValue(emptyList())
         job?.cancel()
         job = GlobalScope.launch {
@@ -45,7 +44,7 @@ class CharacterViewModel: ViewModel() {
         }
     }
 
-    fun getCharacterList(){
+    fun getCharacterList() {
         job?.cancel()
         job = viewModelScope.launch {
             kotlin.runCatching {
@@ -60,7 +59,7 @@ class CharacterViewModel: ViewModel() {
         }
     }
 
-    fun getSearchList(name: String){
+    fun getSearchList(name: String) {
         job?.cancel()
         job = GlobalScope.launch {//не работает с viewModelScope, зато работает с Global, магия)))
             kotlin.runCatching {
