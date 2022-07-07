@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="locations">"location: "</string>
+    <string name="dimension">dimension</string>
+    <string name="episode">episode:</string>
+    <string name="air_date">air date:</string>
+    <string name="episodess">episode:</string>
+</resources>

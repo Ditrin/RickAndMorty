@@ -9,4 +9,11 @@
     <string name="name_">name:</string>
     <string name="gender">gender:</string>
     <string name="filter">filter</string>
+    <string name="locations">"location:"</string>
+    <string name="type">type:</string>
+    <string name="dimension">dimension:</string>
+    <string name="title">title:</string>
+    <string name="air_date">original air date:</string>
+    <string name="episodess">episode:</string>
+    <string name="episod">episodes:</string>
 </resources>

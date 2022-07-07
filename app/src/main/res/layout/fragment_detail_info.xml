@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#D7ECEF"
     android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
+
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/appBarInfo"
             android:layout_width="match_parent"
@@ -17,74 +18,124 @@
             app:navigationIcon="?attr/homeAsUpIndicator" />
 
     </com.google.android.material.appbar.AppBarLayout>
+
     <ProgressBar
+        android:id="@+id/pbDetailInfo"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:id="@+id/pbDetailInfo"
-        android:visibility="gone"
         android:layout_gravity="center"
-        ></ProgressBar>
+        android:visibility="gone"></ProgressBar>
 
     <ImageView
         android:id="@+id/imageCharacter"
-
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
-        ></ImageView>
+        android:layout_marginTop="10dp"></ImageView>
 
 
     <TextView
         android:id="@+id/nameCharacterSingle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="name"
-        android:textSize="40sp"
         android:layout_gravity="center"
-        />
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        tools:text="name" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:text="@string/status"
+        android:textColor="#686868"
+        android:textSize="10sp">
+
+    </TextView>
 
     <TextView
         android:id="@+id/statusSingle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="status"
-        android:textSize="40sp"
-        android:layout_gravity="center"
-/>
+        android:layout_marginLeft="40dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        tools:text="status" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:text="@string/species"
+        android:textColor="#686868"
+        android:textSize="10sp" />
 
     <TextView
         android:id="@+id/speciesSingle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="species"
-        android:textSize="40sp"
-        android:layout_gravity="center"
-        />
+        android:layout_marginLeft="40dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        tools:text="species" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:text="@string/gender"
+        android:textColor="#686868"
+        android:textSize="10sp" />
 
     <TextView
         android:id="@+id/genderSingle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="gender"
-        android:textSize="40sp"
-        android:layout_gravity="center"
-        />
+        android:layout_marginLeft="40dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        tools:text="gender" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:text="@string/locations"
+        android:textColor="#686868"
+        android:textSize="10sp" />
 
     <TextView
         android:id="@+id/locationSingle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="location"
-        android:textSize="40sp"
-        android:layout_gravity="center"
-        />
+        android:layout_marginLeft="40dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        tools:text="location" />
+
+    <TextView
+        android:layout_marginTop="8dp"
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:text="@string/episod"
+        android:textColor="#686868"
+        android:textSize="15sp"
+        android:shadowColor="@color/black"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/episodeSingle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="8dp"
         android:layout_gravity="center"
-        tools:listitem="@layout/item_single"
-        ></androidx.recyclerview.widget.RecyclerView>
+        tools:listitem="@layout/item_single"></androidx.recyclerview.widget.RecyclerView>
 
 
 </LinearLayout>
