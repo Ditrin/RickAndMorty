@@ -6,108 +6,107 @@
     android:layout_height="wrap_content"
     android:paddingBottom="10dp">
 
-
     <ImageView
         android:id="@+id/imageCharacter"
 
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="4dp"
+        android:layout_width="70dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.487"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/btn_star_big_on"></ImageView>
 
-<!--    <TextView-->
-<!--        android:textSize="12sp"-->
-<!--        android:id="@+id/textView3"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="12dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:text="@string/name"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/imageCharacter"-->
-<!--        app:layout_constraintTop_toTopOf="parent"></TextView>-->
-
-    <!--    <TextView-->
-<!--        android:textSize="12sp"-->
-<!--        android:id="@+id/textView4"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="12dp"-->
-<!--        android:text="@string/species"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/imageCharacter"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView3"></TextView>-->
-
     <TextView
-        android:id="@+id/statusCharacter"
-        android:layout_width="0dp"
+        android:id="@+id/speciesCharacter"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/black"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/speciesCharacter"
-        app:layout_constraintTop_toTopOf="@+id/textView5"></TextView>
+        app:layout_constraintStart_toEndOf="@+id/imageCharacter"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:text="Alien"></TextView>
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="8dp"
         android:text="@string/gender"
-        android:textSize="12sp"
+        android:textColor="#686868"
+        android:textSize="8sp"
         app:layout_constraintStart_toEndOf="@+id/imageCharacter"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/statusCharacter"
+        app:layout_goneMarginTop="4dp"></TextView>
 
     <TextView
         android:id="@+id/genderCharacter"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginLeft="8dp"
+        android:textColor="#000000"
         android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/nameCharacter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.808"
-        app:layout_constraintStart_toStartOf="@+id/statusCharacter"
-        app:layout_constraintTop_toTopOf="@+id/textView6"></TextView>
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageCharacter"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Male"></TextView>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/species"
+        android:textColor="#686868"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/imageCharacter"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="8dp"
         android:text="@string/status"
-        android:textSize="12sp"
+        android:textColor="#686868"
+        android:textSize="8sp"
         app:layout_constraintStart_toEndOf="@+id/imageCharacter"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/speciesCharacter"></TextView>
 
     <TextView
-        android:id="@+id/speciesCharacter"
-        android:layout_width="0dp"
+        android:id="@+id/statusCharacter"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
+        android:layout_marginLeft="8dp"
+        android:textColor="#000000"
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/nameCharacter"
-        app:layout_constraintTop_toBottomOf="@+id/nameCharacter"></TextView>
-
-    <TextView
-        android:id="@+id/nameCharacter"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageCharacter"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.175"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:text="Alive"></TextView>
 
+    <TextView
+        android:id="@+id/nameCharacter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageCharacter"
+        tools:text="Rick"></TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

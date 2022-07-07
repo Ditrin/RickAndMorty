@@ -10,7 +10,9 @@
         <entry key="app/src/main/res/layout/fragment_detail_loc.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_episodes.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_locations.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/item_character.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_character.xml" value="1.5" />
+        <entry key="app/src/main/res/layout/item_single.xml" value="0.2828125" />
+        <entry key="app/src/main/res/menu/bottom_nav.xml" value="0.2828125" />
       </map>
     </option>
   </component>
