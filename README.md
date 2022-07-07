@@ -9,7 +9,7 @@
 ![Screenshot](Screen/Screenshot_20220707_143215.png)
 # Поиск
 Можно узнать о вариантах всех любимых персонажей, воспользовавшись поиском по списку.
-![Screenshot](Screen/Screenshot_20220707_143212.png)
+![Screenshot](Screen/Screenshot_20220707_143312.png)
 # Pull-to-Refresh/ProgressBar
 ![Screenshot](Screen/pull.png) ![Screenshot](Screen/Screenshot_20220707_143454.png)
 # Кэширование
